@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+        <title>haproxy log-format generator
+        </title>
+        <style type="text/css">
+            @charset "UTF-8";
+            NOform {
+                display:flex;
+            }
+            #log-format {
+                margin: 1em;
+                border: 1px;
+            }
+        </style>    
+    </head>
+    <body>
+        <h1>
+            haproxy log-format generator
+        </h1>
+        <p>
+            It would be nice if you could just check some boxes and get the
+            fields you want from haproxy.
+        </p>
+        <p><a href="http://docs.haproxy.org/dev/configuration.html#8.2.4">
+            haproxy documentation for HTTPS log format</a></p>
+        <p>
+            Lets output JSON so that we put very little work to do on our log
+            parsers.
+        </p>
+        <fieldset>
+            <legend>The log-format value: </legend>
+            <div id="log-format"></div>
+        </fieldset>
+        <form>
+<fieldset>
+    <legend>haproxy log-format variables:</legend>
+<input type="checkbox" id=" %B   " name=" %B   " value=" %B   "><label for=" %B   "> %B    -  bytes_read           (from server to client)  </label><br>
+<input type="checkbox" id=" %CC  " name=" %CC  " value=" %CC  "><label for=" %CC  "> %CC   -  captured_request_cookie                       </label><br>
+<input type="checkbox" id=" %CS  " name=" %CS  " value=" %CS  "><label for=" %CS  "> %CS   -  captured_response_cookie                      </label><br>
+<input type="checkbox" id=" %H   " name=" %H   " value=" %H   "><label for=" %H   "> %H    -  hostname                                      </label><br>
+<input type="checkbox" id=" %HM  " name=" %HM  " value=" %HM  "><label for=" %HM  "> %HM   -  HTTP method (ex: POST)                        </label><br>
+<input type="checkbox" id=" %HP  " name=" %HP  " value=" %HP  "><label for=" %HP  "> %HP   -  HTTP request URI without query string         </label><br>
+<input type="checkbox" id=" %HPO " name=" %HPO " value=" %HPO "><label for=" %HPO "> %HPO  -  HTTP path only (without host nor query string)</label><br>
+<input type="checkbox" id=" %HQ  " name=" %HQ  " value=" %HQ  "><label for=" %HQ  "> %HQ   -  HTTP request URI query string (ex: ?bar=baz)  </label><br>
+<input type="checkbox" id=" %HU  " name=" %HU  " value=" %HU  "><label for=" %HU  "> %HU   -  HTTP request URI (ex: /foo?bar=baz)           </label><br>
+<input type="checkbox" id=" %HV  " name=" %HV  " value=" %HV  "><label for=" %HV  "> %HV   -  HTTP version (ex: HTTP/1.0)                   </label><br>
+<input type="checkbox" id=" %ID  " name=" %ID  " value=" %ID  "><label for=" %ID  "> %ID   -  unique-id                                     </label><br>
+<input type="checkbox" id=" %ST  " name=" %ST  " value=" %ST  "><label for=" %ST  "> %ST   -  status_code                                   </label><br>
+<input type="checkbox" id=" %T   " name=" %T   " value=" %T   "><label for=" %T   "> %T    -  gmt_date_time                                 </label><br>
+<input type="checkbox" id=" %Ta  " name=" %Ta  " value=" %Ta  "><label for=" %Ta  "> %Ta   -  Active time of the request (from TR to end)   </label><br>
+<input type="checkbox" id=" %Tc  " name=" %Tc  " value=" %Tc  "><label for=" %Tc  "> %Tc   -  Tc                                            </label><br>
+<input type="checkbox" id=" %Td  " name=" %Td  " value=" %Td  "><label for=" %Td  "> %Td   -  Td = Tt - (Tq + Tw + Tc + Tr)                 </label><br>
+<input type="checkbox" id=" %Tl  " name=" %Tl  " value=" %Tl  "><label for=" %Tl  "> %Tl   -  local_date_time                               </label><br>
+<input type="checkbox" id=" %Th  " name=" %Th  " value=" %Th  "><label for=" %Th  "> %Th   -  connection handshake time (SSL, PROXY proto)  </label><br>
+<input type="checkbox" id=" %Ti  " name=" %Ti  " value=" %Ti  "><label for=" %Ti  "> %Ti   -  idle time before the HTTP request             </label><br>
+<input type="checkbox" id=" %Tq  " name=" %Tq  " value=" %Tq  "><label for=" %Tq  "> %Tq   -  Th + Ti + TR                                  </label><br>
+<input type="checkbox" id=" %TR  " name=" %TR  " value=" %TR  "><label for=" %TR  "> %TR   -  time to receive the full request from 1st byte</label><br>
+<input type="checkbox" id=" %Tr  " name=" %Tr  " value=" %Tr  "><label for=" %Tr  "> %Tr   -  Tr (response time)                            </label><br>
+<input type="checkbox" id=" %Ts  " name=" %Ts  " value=" %Ts  "><label for=" %Ts  "> %Ts   -  timestamp                                     </label><br>
+<input type="checkbox" id=" %Tt  " name=" %Tt  " value=" %Tt  "><label for=" %Tt  "> %Tt   -  Tt                                            </label><br>
+<input type="checkbox" id=" %Tu  " name=" %Tu  " value=" %Tu  "><label for=" %Tu  "> %Tu   -  Tu                                            </label><br>
+<input type="checkbox" id=" %Tw  " name=" %Tw  " value=" %Tw  "><label for=" %Tw  "> %Tw   -  Tw                                            </label><br>
+<input type="checkbox" id=" %U   " name=" %U   " value=" %U   "><label for=" %U   "> %U    -  bytes_uploaded       (from client to server)  </label><br>
+<input type="checkbox" id=" %ac  " name=" %ac  " value=" %ac  "><label for=" %ac  "> %ac   -  actconn                                       </label><br>
+<input type="checkbox" id=" %b   " name=" %b   " value=" %b   "><label for=" %b   "> %b    -  backend_name                                  </label><br>
+<input type="checkbox" id=" %bc  " name=" %bc  " value=" %bc  "><label for=" %bc  "> %bc   -  beconn      (backend concurrent connections)  </label><br>
+<input type="checkbox" id=" %bi  " name=" %bi  " value=" %bi  "><label for=" %bi  "> %bi   -  backend_source_ip       (connecting address)  </label><br>
+<input type="checkbox" id=" %bp  " name=" %bp  " value=" %bp  "><label for=" %bp  "> %bp   -  backend_source_port     (connecting address)  </label><br>
+<input type="checkbox" id=" %bq  " name=" %bq  " value=" %bq  "><label for=" %bq  "> %bq   -  backend_queue                                 </label><br>
+<input type="checkbox" id=" %ci  " name=" %ci  " value=" %ci  "><label for=" %ci  "> %ci   -  client_ip                 (accepted address)  </label><br>
+<input type="checkbox" id=" %cp  " name=" %cp  " value=" %cp  "><label for=" %cp  "> %cp   -  client_port               (accepted address)  </label><br>
+<input type="checkbox" id=" %f   " name=" %f   " value=" %f   "><label for=" %f   "> %f    -  frontend_name                                 </label><br>
+<input type="checkbox" id=" %fc  " name=" %fc  " value=" %fc  "><label for=" %fc  "> %fc   -  feconn     (frontend concurrent connections)  </label><br>
+<input type="checkbox" id=" %fi  " name=" %fi  " value=" %fi  "><label for=" %fi  "> %fi   -  frontend_ip              (accepting address)  </label><br>
+<input type="checkbox" id=" %fp  " name=" %fp  " value=" %fp  "><label for=" %fp  "> %fp   -  frontend_port            (accepting address)  </label><br>
+<input type="checkbox" id=" %ft  " name=" %ft  " value=" %ft  "><label for=" %ft  "> %ft   -  frontend_name_transport ('~' suffix for SSL)  </label><br>
+<input type="checkbox" id=" %lc  " name=" %lc  " value=" %lc  "><label for=" %lc  "> %lc   -  frontend_log_counter                          </label><br>
+<input type="checkbox" id=" %hr  " name=" %hr  " value=" %hr  "><label for=" %hr  "> %hr   -  captured_request_headers default style        </label><br>
+<input type="checkbox" id=" %hrl " name=" %hrl " value=" %hrl "><label for=" %hrl "> %hrl  -  captured_request_headers CLF style            </label><br>
+<input type="checkbox" id=" %hs  " name=" %hs  " value=" %hs  "><label for=" %hs  "> %hs   -  captured_response_headers default style       </label><br>
+<input type="checkbox" id=" %hsl " name=" %hsl " value=" %hsl "><label for=" %hsl "> %hsl  -  captured_response_headers CLF style           </label><br>
+<input type="checkbox" id=" %ms  " name=" %ms  " value=" %ms  "><label for=" %ms  "> %ms   -  accept date milliseconds (left-padded with 0) </label><br>
+<input type="checkbox" id=" %pid " name=" %pid " value=" %pid "><label for=" %pid "> %pid  -  PID                                           </label><br>
+<input type="checkbox" id=" %r   " name=" %r   " value=" %r   "><label for=" %r   "> %r    -  http_request                                  </label><br>
+<input type="checkbox" id=" %rc  " name=" %rc  " value=" %rc  "><label for=" %rc  "> %rc   -  retries                                       </label><br>
+<input type="checkbox" id=" %rt  " name=" %rt  " value=" %rt  "><label for=" %rt  "> %rt   -  request_counter (HTTP req or TCP session)     </label><br>
+<input type="checkbox" id=" %s   " name=" %s   " value=" %s   "><label for=" %s   "> %s    -  server_name                                   </label><br>
+<input type="checkbox" id=" %sc  " name=" %sc  " value=" %sc  "><label for=" %sc  "> %sc   -  srv_conn     (server concurrent connections)  </label><br>
+<input type="checkbox" id=" %si  " name=" %si  " value=" %si  "><label for=" %si  "> %si   -  server_IP                   (target address)  </label><br>
+<input type="checkbox" id=" %sp  " name=" %sp  " value=" %sp  "><label for=" %sp  "> %sp   -  server_port                 (target address)  </label><br>
+<input type="checkbox" id=" %sq  " name=" %sq  " value=" %sq  "><label for=" %sq  "> %sq   -  srv_queue                                     </label><br>
+<input type="checkbox" id=" %sslc" name=" %sslc" value=" %sslc"><label for=" %sslc"> %sslc -  ssl_ciphers (ex: AES-SHA)                     </label><br>
+<input type="checkbox" id=" %sslv" name=" %sslv" value=" %sslv"><label for=" %sslv"> %sslv -  ssl_version (ex: TLSv1)                       </label><br>
+<input type="checkbox" id=" %t   " name=" %t   " value=" %t   "><label for=" %t   "> %t    -  date_time      (with millisecond resolution)  </label><br>
+<input type="checkbox" id=" %tr  " name=" %tr  " value=" %tr  "><label for=" %tr  "> %tr   -  date_time of HTTP request                     </label><br>
+<input type="checkbox" id=" %trg " name=" %trg " value=" %trg "><label for=" %trg "> %trg  -  gmt_date_time of start of HTTP request        </label><br>
+<input type="checkbox" id=" %trl " name=" %trl " value=" %trl "><label for=" %trl "> %trl  -  local_date_time of start of HTTP request      </label><br>
+<input type="checkbox" id=" %ts  " name=" %ts  " value=" %ts  "><label for=" %ts  "> %ts   -  termination_state                             </label><br>
+<input type="checkbox" id=" %tsc " name=" %tsc " value=" %tsc "><label for=" %tsc "> %tsc  -  termination_state with cookie status          </label><br>
+
+</fieldset>
+</form>
+<script src="index.js"></script>
+</body>
+</html>
